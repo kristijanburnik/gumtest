@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GumTest" class="js consumer chrome">
+  <head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- APP CSS -->
+    <link href="app.css" rel="stylesheet" type="text/css" >
+    
+    
+    
+    
+
+
+    <title>(child) WebRTC - double getUserMedia calls</title>
+
+  </head>
+  <body>
+
+    <br><br>
+     <div class="container" ng-controller="MainController">
+        Child frame
+        
+        <button class="btn btn-primary" ng-click="gum.test('from-child-itself')">GUM call from child</button>
+     </div>
+     
+    
+
+
+    <!-- SUPPORT for getUserMedia -->
+      <script type="text/javascript" src="adapter.js"></script>
+
+
+    <!-- SUPPORTING SCRIPTS -->
+    
+
+      <!-- jQuery -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+
+      <!-- Bootstrap js -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+      <!-- AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+      <script src="https://code.angularjs.org/1.2.18/angular-route.min.js"></script>
+
+
+
+  <!-- APP scripts -->
+
+    <script src="app.js"></script>
+    <script src="service.js"></script>
+    <script src="controller.js"></script>
+  
+  
+  
+
+
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="GumTest" class="js consumer chrome">
+  <head>
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <!-- Bootstrap CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+
+    <!-- Font Awesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- APP CSS -->
+    <link href="app.css" rel="stylesheet" type="text/css" >
+    
+    
+    
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">    
+    
+    
+
+    <title>WebRTC - double getUserMedia calls</title>
+
+  </head>
+  <body>
+
+     <div class="container" ng-controller="MainController">
+        
+        <h1> gUM test </h1>
+        <div class="alert alert-warning">Open up the console to test and see callback logs</div>
+        
+        
+        <div class="row">
+          <div class="col-md-6">
+          
+            <h3>Method 1: Copy-paste and run from console<h3>
+            <hr>
+          
+            <span>Use this one to run on parent page</span>
+            <pre><code>window.getUserMedia(
+            { audio:true, video:true },
+            function(){ trace("parent success") },
+            function(){ trace("parent error") }
+)</code></pre>        
+            <br>
+            <span>Use this one to run on child page</span>
+            <pre><code>iframeWindow.getUserMedia(
+            { audio:true, video:true },
+            function(){ trace("child success") },
+            function(){ trace("child error") }
+)</code></pre>
+          
+          </div>
+          <div class="col-md-6">
+          
+            <h3>Method 2: Just click it<h3>
+            <hr>
+            
+            Parent frame        
+            <button class="btn btn-primary" ng-click="gum.test('from-parent-to-itself')">GUM call from parent</button>
+            <br><br>
+            <pre><iframe src="iframe.html"></iframe></pre>  
+                
+          </div>          
+        </div>
+        
+ 
+      </div>
+    
+
+
+    <!-- SUPPORT for getUserMedia -->
+      <script type="text/javascript" src="adapter.js"></script>
+
+
+    <!-- SUPPORTING SCRIPTS -->
+
+      <!-- jQuery -->
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>  
+
+      <!-- Bootstrap js -->
+      <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+      <!-- AngularJS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.min.js"></script>
+      <script src="https://code.angularjs.org/1.2.18/angular-route.min.js"></script>
+
+
+    <!-- APP scripts -->
+
+      <script src="app.js"></script>
+      <script src="service.js"></script>
+      <script src="controller.js"></script>
+    
+
+  <!-- AUX for console -->  
+     <script>
+      // so you can reference the window object for the child iframe thru console
+      var iframeWindow;
+      $(function(){
+        iframeWindow = $("iframe")[0].contentWindow;
+      });
+     </script>
+
+
+
+  </body>
+</html>
